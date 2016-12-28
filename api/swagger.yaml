@@ -1,0 +1,510 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a sample server Business Partner. "
+  version: "1.0.0"
+  title: "Business Partner API"
+  contact: {}
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:3000"
+tags:
+- name: "Business Partner"
+- name: "Location"
+schemes:
+- "http"
+paths:
+  /address:
+    post:
+      tags:
+      - "Location"
+      summary: "Create address record"
+      operationId: "addressPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/Address"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "Location"
+  /address/{adrUUID}:
+    get:
+      tags:
+      - "Location"
+      summary: "Get Address by ID"
+      operationId: "addressAdrUUIDGET"
+      parameters:
+      - name: "adrUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Address"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "Location"
+    put:
+      tags:
+      - "Location"
+      summary: "Update Address by ID"
+      operationId: "addressAdrUUIDPUT"
+      parameters:
+      - name: "adrUUID"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/Address"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "Location"
+    delete:
+      tags:
+      - "Location"
+      summary: "Delete Address by ID"
+      operationId: "addressAdrUUIDDELETE"
+      parameters:
+      - name: "adrUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "Location"
+  /bp:
+    post:
+      tags:
+      - "Business Partner"
+      summary: "Create Business Partner"
+      operationId: "bpPOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaMain"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+  /bp/comm/{bpUUID}:
+    get:
+      tags:
+      - "Business Partner"
+      summary: "Get Communication Object"
+      operationId: "bpCommBpUUIDGET"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/BupaComm"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    post:
+      tags:
+      - "Business Partner"
+      summary: "Create Communication Object"
+      operationId: "bpCommBpUUIDPOST"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaComm"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    put:
+      tags:
+      - "Business Partner"
+      summary: "Update Communication Object"
+      operationId: "bpCommBpUUIDPUT"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaComm"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    delete:
+      tags:
+      - "Business Partner"
+      summary: "Delete Communication Object"
+      operationId: "bpCommBpUUIDDELETE"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+  /bp/rel/{bpUUID}:
+    get:
+      tags:
+      - "Business Partner"
+      summary: "Gets Relationship Object"
+      operationId: "bpRelBpUUIDGET"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/BupaRel"
+      x-swagger-router-controller: "BusinessPartner"
+    put:
+      tags:
+      - "Business Partner"
+      summary: "Update Relationship Object"
+      operationId: "bpRelBpUUIDPUT"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaRel"
+      responses:
+        200:
+          description: "Status 200"
+      x-swagger-router-controller: "BusinessPartner"
+    delete:
+      tags:
+      - "Business Partner"
+      summary: "Delete Relationship Object"
+      operationId: "bpRelBpUUIDDELETE"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+  /bp/role/{bpUUID}:
+    get:
+      tags:
+      - "Business Partner"
+      summary: "Gets Roles Object"
+      operationId: "bpRoleBpUUIDGET"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/BupaRole"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    put:
+      tags:
+      - "Business Partner"
+      summary: "Update Roles Object"
+      operationId: "bpRoleBpUUIDPUT"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaRole"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    delete:
+      tags:
+      - "Business Partner"
+      summary: "Delete Roles Object"
+      operationId: "bpRoleBpUUIDDELETE"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+  /bp/{bpUUID}:
+    get:
+      tags:
+      - "Business Partner"
+      summary: "Gets Business Partner Object"
+      operationId: "bpBpUUIDGET"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        description: "ID of Business Partner"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            $ref: "#/definitions/BupaAll"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    put:
+      tags:
+      - "Business Partner"
+      summary: "Update Business Partner Object"
+      operationId: "bpBpUUIDPUT"
+      consumes:
+      - "application/json"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        description: "ID of Business Partner"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaAll"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+    delete:
+      tags:
+      - "Business Partner"
+      summary: "Deletes Business Partner Object"
+      operationId: "bpBpUUIDDELETE"
+      parameters:
+      - name: "bpUUID"
+        in: "path"
+        description: "ID of Business Partner"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+  /bpAll:
+    post:
+      tags:
+      - "Business Partner"
+      summary: "Create Business Partner Object with all data"
+      operationId: "bpAllPOST"
+      consumes:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/BupaAll"
+      responses:
+        200:
+          description: "Status 200"
+        400:
+          description: "Status 400"
+      x-swagger-router-controller: "BusinessPartner"
+definitions:
+  BupaMain:
+    type: "object"
+    required:
+    - "bpFirstName"
+    - "bpKind"
+    properties:
+      bpFirstName:
+        type: "string"
+      bpLastName:
+        type: "string"
+      bpKind:
+        type: "string"
+      deleted:
+        type: "boolean"
+        default: false
+      customData:
+        type: "object"
+        properties: {}
+  BupaRel:
+    type: "object"
+    properties:
+      rels:
+        type: "array"
+        items:
+          $ref: "#/definitions/BupaRel_rels"
+  BupaRole:
+    type: "object"
+    properties:
+      roles:
+        type: "array"
+        items:
+          $ref: "#/definitions/BupaRole_roles"
+  BupaComm:
+    type: "object"
+    properties:
+      comms:
+        type: "array"
+        items:
+          $ref: "#/definitions/BupaComm_comms"
+  BupaAll:
+    type: "object"
+    properties:
+      bupaMain:
+        $ref: "#/definitions/BupaMain"
+      bupaRole:
+        $ref: "#/definitions/BupaRole"
+      bupaRel:
+        $ref: "#/definitions/BupaRel"
+      bupaComm:
+        $ref: "#/definitions/BupaComm"
+      addresses:
+        $ref: "#/definitions/Address"
+  Address:
+    type: "object"
+    properties:
+      addresses:
+        type: "array"
+        items:
+          $ref: "#/definitions/Address_addresses"
+  BupaRel_rels:
+    properties:
+      bpUUID:
+        type: "string"
+      relatedBpUUID:
+        type: "string"
+      relType:
+        type: "string"
+      validFrom:
+        type: "string"
+        format: "date"
+      validTo:
+        type: "string"
+        format: "date"
+      customData:
+        type: "object"
+        properties: {}
+  BupaRole_roles:
+    properties:
+      bpUUID:
+        type: "string"
+      bpRole:
+        type: "string"
+      validFrom:
+        type: "string"
+        format: "date"
+      validTo:
+        type: "string"
+        format: "date"
+      customData:
+        type: "object"
+        properties: {}
+  BupaComm_comms:
+    properties:
+      bpUUID:
+        type: "string"
+      commType:
+        type: "string"
+      adrUUID:
+        type: "string"
+      emailAddress:
+        type: "string"
+      phoneNumber:
+        type: "string"
+      url:
+        type: "string"
+      customData:
+        type: "object"
+        properties: {}
+  Address_addresses:
+    properties:
+      adrUUID:
+        type: "string"
+      point:
+        type: "string"
+      street1:
+        type: "string"
+      street2:
+        type: "string"
+      city:
+        type: "string"
+      postalCode:
+        type: "string"
+      province:
+        type: "string"
+      country:
+        type: "string"

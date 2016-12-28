@@ -1,0 +1,45 @@
+{
+  "bupaMain": {
+    "bpFirstName": "Amandeep",
+    "bpLastName": "Bal",
+    "bpKind": "PERSON",
+    "deleted": false,
+    "customData": {}
+  },
+  "bupaRole": {
+    "roles": [
+      {
+        "bpRole": "PO_RECEPIENT",
+        "validFrom": "2016-12-21",
+        "validTo": "2016-12-21",
+        "customData": {}
+      },
+      {
+        "bpRole": "SHIP_LOCATION",
+        "validFrom": "2016-12-21",
+        "validTo": "2016-12-21",
+        "customData": {}
+      }
+    ]
+  },
+  "bupaComm": {
+    "comms": [
+      {
+        "commType": "EMAIL",
+        "adrUUID": "",
+        "emailAddress": "abal@bianix.com",
+        "phoneNumber": "519-722-4741",
+        "url": "http://bianix.com",
+        "customData": {}
+      },
+      {
+        "commType": "ADDRESS",
+        "adrUUID": "",
+        "emailAddress": "abadddl@bianix.com",
+        "phoneNumber": "519-722-4742",
+        "url": "http://bianix.de",
+        "customData": {}
+      }
+    ]
+  }
+}
