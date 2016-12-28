@@ -1,6 +1,6 @@
 module.exports = {
     development: {
-        url: 'postgres://postgres:golfbunker@localhost:5432/postgres',
+        url: 'postgres://postgres:password@localhost:5432/postgres',
         dialect: 'postgres'
     },
     quality: {
